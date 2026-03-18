@@ -18,7 +18,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-dosya_yolu = r"C:\MTX_ASC_DATA\TumVeriler_Son250.csv"
+dosya_yolu = r"C:\MTX_ASC_DATA\TumVeriler_1200.csv"
 
 # CACHE TEMIZLEME BUTONU
 if st.sidebar.button("🧹 Cache Temizle", type="secondary"):
@@ -29,12 +29,12 @@ if st.sidebar.button("🧹 Cache Temizle", type="secondary"):
 @st.cache_data(ttl=300)
 def veri_yukle():
     df = pd.read_csv(dosya_yolu, sep=";", header=None, engine='c', on_bad_lines='skip',
-                     names=["KayitZamani", "HisseAdi", "Tarih", "Acilis", "Yuksek", "Dusuk", "Kapanis", "Ortalama", "Adet", "Hacim"],
+                     names=["HisseAdi", "Tarih", "Acilis", "Yuksek", "Dusuk", "Kapanis", "Ortalama", "Hacim", "Tutar"],
                      encoding='utf-8')
     
     df["HisseAdi"] = df["HisseAdi"].astype(str).str.upper().str.strip()
     
-    sayisal_kolonlar = ["Acilis", "Yuksek", "Dusuk", "Kapanis", "Ortalama", "Adet", "Hacim"]
+    sayisal_kolonlar = ["Acilis", "Yuksek", "Dusuk", "Kapanis", "Ortalama", "Hacim", "Tutar"]
     for kolon in sayisal_kolonlar:
         df[kolon] = df[kolon].astype(str).str.replace(',', '.', regex=False)
         df[kolon] = pd.to_numeric(df[kolon], errors='coerce')
