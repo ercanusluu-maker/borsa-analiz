@@ -24,7 +24,7 @@ st.html("""
 # 3. SEO META TAGS (Google için kritik) - 50 BİST Hissesi Dahil
 # ==========================================
 st.html("""
-    <meta name="description" content="EUTA Borsa - BİST 50 popüler hisseleri için profesyonel teknik analiz. THYAO, GARAN, ASELS, KCHOL, SAHOL, EREGL, FROTO, BIMAS ve tüm BİST hisselerinin analizi, grafikleri, fibonacci seviyeleri ve al-sat sinyalleri.">
+    <meta name="description" content="EUTA Borsa - BİST 100 hisseleri için profesyonel teknik analiz. THYAO, GARAN, ASELS, KCHOL ve tüm BİST hisselerinin analizi, grafikleri, fibonacci seviyeleri ve al-sat sinyalleri.">
     <meta name="keywords" content="borsa, hisse senedi, teknik analiz, BİST, BIST 100, fibonacci, RSI, SMA, hisse analizi, eutaborsa, borsa istanbul, thyao, garanti, aselsan, THYAO, GARAN, ASELS, KCHOL, SAHOL, EREGL, FROTO, BIMAS, TCELL, ISCTR, YKBNK, AKBNK, HALKB, VAKBN, SISE, TUPRS, ENJSA, TOASO, EKGYO, PETKM, SASA, TAVHL, PGSUS, MGROS, AEFES, KRDMD, GUBRF, ASTOR, TTKOM, TRALT, ALARK, ARCLK, DOHOL, HEKTS, MAVI, CCOLA, CIMSA, DOAS, BRSAN, BTCIM, KONTR, KUYAS, MIATK, OYAKC, SOKM, TRMET, TSKB, VESTL, ZOREN, AGHOL">
     <meta name="author" content="Ercan USLU">
     <meta name="robots" content="index, follow">
@@ -36,7 +36,7 @@ st.html("""
 
     <!-- Open Graph (Facebook, LinkedIn) -->
     <meta property="og:title" content="Hisse Senedi Analizi | BİST 50 Teknik Analiz - EUTA Borsa">
-    <meta property="og:description" content="Profesyonel borsa analiz platformu. THYAO, GARAN, ASELS ve 50+ BİST hissesini analiz edin.">
+    <meta property="og:description" content="Profesyonel borsa analiz platformu. THYAO, GARAN, ASELS ve tüm BİST hisselerini analiz edin.">
     <meta property="og:url" content="https://www.eutaborsa.com">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="tr_TR">
@@ -45,7 +45,7 @@ st.html("""
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="EUTA Borsa - BİST Hisse Analiz Platformu">
-    <meta name="twitter:description" content="THYAO, GARAN, ASELS ve 50+ BİST hissesi için teknik analiz">
+    <meta name="twitter:description" content="THYAO, GARAN, ASELS ve tüm BİST hisseleri için teknik analiz">
     <meta name="twitter:creator" content="@ercanuslu">
 
     <!-- Schema.org JSON-LD -->
@@ -139,7 +139,7 @@ st.html("""
 """)
 
 # ==========================================
-# 7. SEO CONTENT - 50 BİST Hissesi (Gizli ama indexlenebilir)
+# 7. SEO CONTENT - BİST Hisseleri (Gizli ama indexlenebilir)
 # ==========================================
 st.html("""
     <div class="seo-content">
@@ -170,7 +170,7 @@ st.html("""
 """)
 
 # ==========================================
-# 8. MENU CARDS
+# 8. MENU CARDS (Butonlar kaldırıldı - sayfa yok)
 # ==========================================
 st.markdown('<div class="menu-grid">', unsafe_allow_html=True)
 
@@ -193,9 +193,6 @@ with col1:
         </div>
     """, unsafe_allow_html=True)
 
-    if st.button("Aç →", key="grafik_btn", use_container_width=True):
-        st.switch_page("pages/01_Grafik.py")
-
 with col2:
     st.markdown("""
         <div class="menu-card">
@@ -210,9 +207,6 @@ with col2:
             </div>
         </div>
     """, unsafe_allow_html=True)
-
-    if st.button("Aç →", key="tarama_btn", use_container_width=True):
-        st.switch_page("pages/02_Tarama.py")
 
 with col3:
     st.markdown("""
@@ -229,9 +223,6 @@ with col3:
         </div>
     """, unsafe_allow_html=True)
 
-    if st.button("Aç →", key="mobil_btn", use_container_width=True):
-        st.switch_page("pages/04_Admin_Mobil.py")
-
 st.markdown('</div></div>', unsafe_allow_html=True)
 
 # ==========================================
@@ -246,12 +237,10 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ==========================================
-# 10. SIDEBAR (Kompakt) 
+# 10. SIDEBAR (Basitleştirildi - sayfa linkleri kaldırıldı)
 # ==========================================
 st.sidebar.markdown("### 🚀 Hızlı Erişim")
-st.sidebar.page_link("pages/01_Grafik.py", label="📊 Grafik Analizi")
-st.sidebar.page_link("pages/02_Tarama.py", label="🔍 Fibonacci Tarama")
-st.sidebar.page_link("pages/04_Admin_Mobil.py", label="📱 Mobil İzle")
+st.sidebar.info("📊 Grafik Analizi\n🔍 Fibonacci Tarama\n📱 Mobil İzle")
 st.sidebar.markdown("---")
 st.sidebar.caption("🔗 **eutaborsa.com**\n\nTek port, çoklu sayfa yapısı")
 
