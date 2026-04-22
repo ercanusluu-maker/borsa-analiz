@@ -2,7 +2,64 @@ import streamlit as st
 import os
 
 # ==========================================
-# 0. STATIK DOSYALARI SERVIS ET (sitemap.xml + robots.txt)
+# 0. GOOGLE BOT ICIN STATIK HTML
+# ==========================================
+try:
+    user_agent = st.context.headers.get("User-Agent", "")
+    path = st.context.headers.get("Path", "/")
+
+    if "Googlebot" in user_agent or "bot" in user_agent.lower() or "crawler" in user_agent.lower():
+        st.set_page_config(page_title="Hisse Senedi Analizi | BİST 50 Teknik Analiz - EUTA Borsa")
+
+        if path == "/sitemap.xml":
+            st.markdown("""<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://eutaborsa.com/</loc><lastmod>2026-04-22</lastmod><priority>1.0</priority></url>
+  <url><loc>https://eutaborsa.com/Grafik</loc><lastmod>2026-04-22</lastmod><priority>0.8</priority></url>
+  <url><loc>https://eutaborsa.com/Tarama</loc><lastmod>2026-04-22</lastmod><priority>0.8</priority></url>
+</urlset>""", unsafe_allow_html=True)
+            st.stop()
+
+        if path == "/robots.txt":
+            st.markdown("""User-agent: *
+Allow: /
+Sitemap: https://eutaborsa.com/sitemap.xml""", unsafe_allow_html=True)
+            st.stop()
+
+        # Ana sayfa bot icin
+        st.html("""
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Hisse Senedi Analizi | BİST 50 Teknik Analiz - EUTA Borsa</title>
+    <meta name="description" content="EUTA Borsa - BİST 50 popüler hisseleri için profesyonel teknik analiz. THYAO, GARAN, ASELS, KCHOL ve tüm BİST hisselerinin analizi.">
+    <link rel="canonical" href="https://eutaborsa.com">
+</head>
+<body>
+    <h1>Hisse Senedi Analizi | BİST 50 Teknik Analiz</h1>
+    <p><strong>EUTA Borsa</strong> - Borsa İstanbul (BİST) popüler hisseleri için profesyonel teknik analiz platformu.</p>
+
+    <h2>Popüler BİST Hisseleri</h2>
+    <p>THYAO (Türk Hava Yolları), GARAN (Garanti Bankası), ASELS (Aselsan), KCHOL (Koç Holding), 
+    SAHOL (Sabancı Holding), EREGL (Ereğli Demir Çelik), FROTO (Ford Otosan), BIMAS (BİM), 
+    TCELL (Turkcell), ISCTR (İş Bankası), SISE (Şişe Cam), TUPRS (Tüpraş) ve daha fazlası.</p>
+
+    <h2>Özellikler</h2>
+    <ul>
+        <li><a href="https://eutaborsa.com/Grafik">Grafik Analizi</a> - Teknik indikatörler, SMA, RSI, Fibonacci</li>
+        <li><a href="https://eutaborsa.com/Tarama">Fibonacci Tarama</a> - Tüm hisseleri fibonacci seviyelerine göre tara</li>
+    </ul>
+
+    <p>© 2026 EUTA Borsa - eutaborsa.com</p>
+</body>
+</html>""")
+        st.stop()
+except:
+    pass
+
+# ==========================================
+# 1. STATIK DOSYALARI SERVIS ET
 # ==========================================
 try:
     path = st.context.headers.get("Path", "")
@@ -10,21 +67,9 @@ try:
     if path == "/sitemap.xml":
         st.markdown("""<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://eutaborsa.com/</loc>
-    <lastmod>2026-04-22</lastmod>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://eutaborsa.com/Grafik</loc>
-    <lastmod>2026-04-22</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://eutaborsa.com/Tarama</loc>
-    <lastmod>2026-04-22</lastmod>
-    <priority>0.8</priority>
-  </url>
+  <url><loc>https://eutaborsa.com/</loc><lastmod>2026-04-22</lastmod><priority>1.0</priority></url>
+  <url><loc>https://eutaborsa.com/Grafik</loc><lastmod>2026-04-22</lastmod><priority>0.8</priority></url>
+  <url><loc>https://eutaborsa.com/Tarama</loc><lastmod>2026-04-22</lastmod><priority>0.8</priority></url>
 </urlset>""", unsafe_allow_html=True)
         st.stop()
 
@@ -34,7 +79,6 @@ Allow: /
 Sitemap: https://eutaborsa.com/sitemap.xml""", unsafe_allow_html=True)
         st.stop()
 
-    # www yonlendirme
     host = st.context.headers.get("Host", "")
     if host.startswith("www."):
         st.markdown(
@@ -48,7 +92,7 @@ except:
 BASE_URL = "https://eutaborsa.com"
 
 # ==========================================
-# 1. PAGE CONFIG (SEO Meta)
+# 2. PAGE CONFIG
 # ==========================================
 st.set_page_config(
     page_title="Hisse Senedi Analizi | BİST 50 Teknik Analiz - EUTA Borsa",
@@ -58,7 +102,7 @@ st.set_page_config(
 )
 
 # ==========================================
-# 2. PRECONNECT
+# 3. PRECONNECT
 # ==========================================
 st.html("""
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -67,7 +111,7 @@ st.html("""
 """)
 
 # ==========================================
-# 3. SEO META TAGS
+# 4. SEO META TAGS
 # ==========================================
 st.html(f"""
     <meta name="description" content="EUTA Borsa - BİST 50 popüler hisseleri için profesyonel teknik analiz. THYAO, GARAN, ASELS, KCHOL, SAHOL, EREGL, FROTO, BIMAS ve tüm BİST hisselerinin analizi, grafikleri, fibonacci seviyeleri ve al-sat sinyalleri.">
@@ -108,7 +152,7 @@ st.html(f"""
 """)
 
 # ==========================================
-# 4. KRITIK CSS
+# 5. KRITIK CSS
 # ==========================================
 st.markdown("""
 <style>
@@ -135,7 +179,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ==========================================
-# 5. HEADER
+# 6. HEADER
 # ==========================================
 st.markdown("""
     <div class="header-bar">
@@ -146,7 +190,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ==========================================
-# 6. HERO SECTION
+# 7. HERO SECTION
 # ==========================================
 st.html("""
     <div class="main-content">
@@ -165,7 +209,7 @@ st.html("""
 """)
 
 # ==========================================
-# 7. MENU CARDS
+# 8. MENU CARDS
 # ==========================================
 st.markdown('<div class="menu-grid">', unsafe_allow_html=True)
 
@@ -230,7 +274,7 @@ with col3:
 st.markdown('</div></div>', unsafe_allow_html=True)
 
 # ==========================================
-# 8. FOOTER
+# 9. FOOTER
 # ==========================================
 st.markdown("""
     <div style="text-align: center; padding: 20px; color: #6e7681; font-size: 10px; margin-top: 20px;">
@@ -241,7 +285,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ==========================================
-# 9. SIDEBAR
+# 10. SIDEBAR
 # ==========================================
 st.sidebar.markdown("### 🚀 Hızlı Erişim")
 st.sidebar.page_link("pages/01_Grafik.py", label="📊 Grafik Analizi")
