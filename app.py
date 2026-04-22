@@ -2,7 +2,53 @@ import streamlit as st
 import os
 
 # ==========================================
-# 1. PAGE CONFIG (SEO Meta) - HER ZAMAN İLK SIRADA!
+# 0. STATIK DOSYALARI SERVIS ET (sitemap.xml + robots.txt)
+# ==========================================
+try:
+    path = st.context.headers.get("Path", "")
+
+    if path == "/sitemap.xml":
+        st.markdown("""<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://eutaborsa.com/</loc>
+    <lastmod>2026-04-22</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://eutaborsa.com/Grafik</loc>
+    <lastmod>2026-04-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://eutaborsa.com/Tarama</loc>
+    <lastmod>2026-04-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+</urlset>""", unsafe_allow_html=True)
+        st.stop()
+
+    if path == "/robots.txt":
+        st.markdown("""User-agent: *
+Allow: /
+Sitemap: https://eutaborsa.com/sitemap.xml""", unsafe_allow_html=True)
+        st.stop()
+
+    # www yonlendirme
+    host = st.context.headers.get("Host", "")
+    if host.startswith("www."):
+        st.markdown(
+            '<meta http-equiv="refresh" content="0;url=https://eutaborsa.com/">',
+            unsafe_allow_html=True
+        )
+        st.stop()
+except:
+    pass
+
+BASE_URL = "https://eutaborsa.com"
+
+# ==========================================
+# 1. PAGE CONFIG (SEO Meta)
 # ==========================================
 st.set_page_config(
     page_title="Hisse Senedi Analizi | BİST 50 Teknik Analiz - EUTA Borsa",
@@ -12,20 +58,7 @@ st.set_page_config(
 )
 
 # ==========================================
-# 2. SEO META TAGS - st.markdown() ile (head içine inject)
-# ==========================================
-st.markdown("""
-<meta name="description" content="EUTA Borsa - BİST 100 hisseleri için profesyonel teknik analiz. THYAO, GARAN, ASELS, KCHOL ve tüm BİST hisselerinin analizi, grafikleri, fibonacci seviyeleri ve al-sat sinyalleri.">
-<meta name="keywords" content="borsa, hisse senedi, teknik analiz, BİST, BIST 100, fibonacci, RSI, SMA, hisse analizi, eutaborsa, borsa istanbul, thyao, garanti, aselsan, THYAO, GARAN, ASELS, KCHOL, SAHOL, EREGL, FROTO, BIMAS, TCELL, ISCTR, YKBNK, AKBNK, HALKB, VAKBN, SISE, TUPRS, ENJSA, TOASO, EKGYO, PETKM, SASA, TAVHL, PGSUS, MGROS, AEFES, KRDMD, GUBRF, ASTOR, TTKOM, TRALT, ALARK, ARCLK, DOHOL, HEKTS, MAVI, CCOLA, CIMSA, DOAS, BRSAN, BTCIM, KONTR, KUYAS, MIATK, OYAKC, SOKM, TRMET, TSKB, VESTL, ZOREN, AGHOL">
-<meta name="author" content="Ercan USLU">
-<meta name="robots" content="index, follow">
-<meta name="language" content="tr">
-<meta name="revisit-after" content="1 days">
-<link rel="canonical" href="https://www.eutaborsa.com">
-""", unsafe_allow_html=True)
-
-# ==========================================
-# 3. PRECONNECT (Fontlardan önce - Kritik)
+# 2. PRECONNECT
 # ==========================================
 st.html("""
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,42 +67,48 @@ st.html("""
 """)
 
 # ==========================================
-# 4. OPEN GRAPH ve TWITTER CARD
+# 3. SEO META TAGS
 # ==========================================
-st.markdown("""
-<meta property="og:title" content="Hisse Senedi Analizi | BİST 50 Teknik Analiz - EUTA Borsa">
-<meta property="og:description" content="Profesyonel borsa analiz platformu. THYAO, GARAN, ASELS ve tüm BİST hisselerini analiz edin.">
-<meta property="og:url" content="https://www.eutaborsa.com">
-<meta property="og:type" content="website">
-<meta property="og:locale" content="tr_TR">
-<meta property="og:site_name" content="EUTA Borsa">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="EUTA Borsa - BİST Hisse Analiz Platformu">
-<meta name="twitter:description" content="THYAO, GARAN, ASELS ve tüm BİST hisseleri için teknik analiz">
-""", unsafe_allow_html=True)
+st.html(f"""
+    <meta name="description" content="EUTA Borsa - BİST 50 popüler hisseleri için profesyonel teknik analiz. THYAO, GARAN, ASELS, KCHOL, SAHOL, EREGL, FROTO, BIMAS ve tüm BİST hisselerinin analizi, grafikleri, fibonacci seviyeleri ve al-sat sinyalleri.">
+    <meta name="keywords" content="borsa, hisse senedi, teknik analiz, BİST, BIST 100, fibonacci, RSI, SMA, hisse analizi, eutaborsa, borsa istanbul, thyao, garanti, aselsan, THYAO, GARAN, ASELS, KCHOL, SAHOL, EREGL, FROTO, BIMAS, TCELL, ISCTR, YKBNK, AKBNK, HALKB, VAKBN, SISE, TUPRS, ENJSA, TOASO, EKGYO, PETKM, SASA, TAVHL, PGSUS, MGROS, AEFES, KRDMD, GUBRF, ASTOR, TTKOM, TRALT, ALARK, ARCLK, DOHOL, HEKTS, MAVI, CCOLA, CIMSA, DOAS, BRSAN, BTCIM, KONTR, KUYAS, MIATK, OYAKC, SOKM, TRMET, TSKB, VESTL, ZOREN, AGHOL">
+    <meta name="author" content="Ercan USLU">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="tr">
+    <meta name="revisit-after" content="1 days">
+
+    <link rel="canonical" href="{BASE_URL}">
+
+    <meta property="og:title" content="Hisse Senedi Analizi | BİST 50 Teknik Analiz - EUTA Borsa">
+    <meta property="og:description" content="Profesyonel borsa analiz platformu. THYAO, GARAN, ASELS ve 50+ BİST hissesini analiz edin.">
+    <meta property="og:url" content="{BASE_URL}">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="tr_TR">
+    <meta property="og:site_name" content="EUTA Borsa">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="EUTA Borsa - BİST Hisse Analiz Platformu">
+    <meta name="twitter:description" content="THYAO, GARAN, ASELS ve 50+ BİST hissesi için teknik analiz">
+    <meta name="twitter:creator" content="@ercanuslu">
+
+    <script type="application/ld+json">
+    {{
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "EUTA Borsa",
+        "url": "{BASE_URL}",
+        "description": "BİST 50 popüler hisseleri için profesyonel teknik analiz platformu - THYAO GARAN ASELS KCHOL SAHOL",
+        "author": {{
+            "@type": "Person",
+            "name": "Ercan USLU"
+        }},
+        "inLanguage": "tr-TR"
+    }}
+    </script>
+""")
 
 # ==========================================
-# 5. SCHEMA.ORG JSON-LD
-# ==========================================
-st.markdown("""
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "EUTA Borsa",
-    "url": "https://www.eutaborsa.com",
-    "description": "BİST 50 popüler hisseleri için profesyonel teknik analiz platformu - THYAO GARAN ASELS KCHOL SAHOL",
-    "author": {
-        "@type": "Person",
-        "name": "Ercan USLU"
-    },
-    "inLanguage": "tr-TR"
-}
-</script>
-""", unsafe_allow_html=True)
-
-# ==========================================
-# 6. KRİTİK CSS
+# 4. KRITIK CSS
 # ==========================================
 st.markdown("""
 <style>
@@ -92,12 +131,11 @@ st.markdown("""
     #MainMenu, footer, header { visibility: hidden; }
     .stButton > button { background: #238636; color: white; border: none; 
                          border-radius: 6px; width: 100%; font-weight: 600; }
-    .seo-content { position: absolute; left: -9999px; height: 0; overflow: hidden; }
 </style>
 """, unsafe_allow_html=True)
 
 # ==========================================
-# 7. HEADER
+# 5. HEADER
 # ==========================================
 st.markdown("""
     <div class="header-bar">
@@ -108,7 +146,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ==========================================
-# 8. HERO SECTION
+# 6. HERO SECTION
 # ==========================================
 st.html("""
     <div class="main-content">
@@ -127,38 +165,7 @@ st.html("""
 """)
 
 # ==========================================
-# 9. SEO CONTENT - Gizli ama indexlenebilir
-# ==========================================
-st.markdown("""
-<div class="seo-content">
-    <h2>BİST 50 Popüler Hisse Senedi Analizleri</h2>
-    <p>EUTA Borsa platformunda analiz edilen Borsa İstanbul (BİST) hisse senetleri: 
-    THYAO, GARAN, ASELS, KCHOL, SAHOL, EREGL, FROTO, BIMAS, TCELL, ISCTR, YKBNK, AKBNK, 
-    HALKB, VAKBN, SISE, TUPRS, ENJSA, TOASO, EKGYO, PETKM, SASA, TAVHL, PGSUS, MGROS, 
-    AEFES, KRDMD, GUBRF, ASTOR, TTKOM, TRALT, ALARK, ARCLK, DOHOL, HEKTS, MAVI, CCOLA, 
-    CIMSA, DOAS, BRSAN, BTCIM, KONTR, KUYAS, MIATK, OYAKC, SOKM, TRMET, TSKB, VESTL, 
-    ZOREN, AGHOL. Her hisse için teknik analiz, grafik, fibonacci seviyeleri, 
-    RSI, MACD indikatörleri ve al-sat sinyalleri.</p>
-    <ul>
-        <li>THYAO (Türk Hava Yolları) hisse analizi ve grafik</li>
-        <li>GARAN (Garanti Bankası) hisse yorum ve hedef fiyat</li>
-        <li>ASELS (Aselsan) teknik analiz ve sinyaller</li>
-        <li>KCHOL (Koç Holding) hisse analizi</li>
-        <li>SAHOL (Sabancı Holding) teknik analiz</li>
-        <li>EREGL (Ereğli Demir Çelik) hisse yorum</li>
-        <li>BIMAS (BİM) teknik analiz</li>
-        <li>TCELL (Turkcell) hisse analizi</li>
-        <li>SISE (Şişe Cam) teknik analiz</li>
-        <li>TUPRS (Tüpraş) hisse yorum</li>
-    </ul>
-    <p>BİST 30, BİST 50 ve BİST 100 endekslerindeki tüm hisselerin detaylı teknik analizleri 
-    için EUTA Borsa platformunu kullanın. THYAO hisse analizi, GARAN teknik analiz, 
-    ASELS hisse yorumları ve daha fazlası.</p>
-</div>
-""", unsafe_allow_html=True)
-
-# ==========================================
-# 10. MENU CARDS
+# 7. MENU CARDS
 # ==========================================
 st.markdown('<div class="menu-grid">', unsafe_allow_html=True)
 
@@ -181,6 +188,9 @@ with col1:
         </div>
     """, unsafe_allow_html=True)
 
+    if st.button("Aç →", key="grafik_btn", use_container_width=True):
+        st.switch_page("pages/01_Grafik.py")
+
 with col2:
     st.markdown("""
         <div class="menu-card">
@@ -195,6 +205,9 @@ with col2:
             </div>
         </div>
     """, unsafe_allow_html=True)
+
+    if st.button("Aç →", key="tarama_btn", use_container_width=True):
+        st.switch_page("pages/02_Tarama.py")
 
 with col3:
     st.markdown("""
@@ -211,10 +224,13 @@ with col3:
         </div>
     """, unsafe_allow_html=True)
 
+    if st.button("Aç →", key="mobil_btn", use_container_width=True):
+        st.switch_page("pages/04_Admin_Mobil.py")
+
 st.markdown('</div></div>', unsafe_allow_html=True)
 
 # ==========================================
-# 11. FOOTER
+# 8. FOOTER
 # ==========================================
 st.markdown("""
     <div style="text-align: center; padding: 20px; color: #6e7681; font-size: 10px; margin-top: 20px;">
@@ -225,30 +241,11 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # ==========================================
-# 12. SIDEBAR (Basitleştirildi)
+# 9. SIDEBAR
 # ==========================================
 st.sidebar.markdown("### 🚀 Hızlı Erişim")
-st.sidebar.info("📊 Grafik Analizi\n🔍 Fibonacci Tarama\n📱 Mobil İzle")
+st.sidebar.page_link("pages/01_Grafik.py", label="📊 Grafik Analizi")
+st.sidebar.page_link("pages/02_Tarama.py", label="🔍 Fibonacci Tarama")
+st.sidebar.page_link("pages/04_Admin_Mobil.py", label="📱 Mobil İzle")
 st.sidebar.markdown("---")
 st.sidebar.caption("🔗 **eutaborsa.com**\n\nTek port, çoklu sayfa yapısı")
-
-# ==========================================
-# 13. PRERENDER READY
-# ==========================================
-st.html("""
-    <script>
-        (function() {
-            var checkReady = function() {
-                if (document.readyState === 'complete') {
-                    setTimeout(function() {
-                        window.prerenderReady = true;
-                        console.log('✅ Prerender ready: true');
-                    }, 1500);
-                } else {
-                    setTimeout(checkReady, 100);
-                }
-            };
-            checkReady();
-        })();
-    </script>
-""")
