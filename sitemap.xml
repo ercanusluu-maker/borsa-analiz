@@ -2,26 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://eutaborsa.com/</loc>
-    <lastmod>2026-04-23</lastmod>
+    <lastmod>2026-04-26</lastmod>
     <priority>1.0</priority>
     <changefreq>daily</changefreq>
   </url>
   <url>
     <loc>https://eutaborsa.com/Grafik</loc>
-    <lastmod>2026-04-23</lastmod>
+    <lastmod>2026-04-26</lastmod>
     <priority>0.8</priority>
     <changefreq>daily</changefreq>
   </url>
   <url>
     <loc>https://eutaborsa.com/Tarama</loc>
-    <lastmod>2026-04-23</lastmod>
+    <lastmod>2026-04-26</lastmod>
     <priority>0.8</priority>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>https://eutaborsa.com/Formasyonlar</loc>
-    <lastmod>2026-04-23</lastmod>
-    <priority>0.9</priority>
+    <loc>https://eutaborsa.com/Formasyon</loc>
+    <lastmod>2026-04-26</lastmod>
+    <priority>0.8</priority>
+    <changefreq>daily</changefreq>
+  </url>
+  <url>
+    <loc>https://eutaborsa.com/Strateji</loc>
+    <lastmod>2026-04-26</lastmod>
+    <priority>0.8</priority>
     <changefreq>daily</changefreq>
   </url>
 </urlset>
