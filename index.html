@@ -14,6 +14,16 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://eutaborsa.com">
 
+    <!-- Eski github.io adresini noindex yap -->
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- github.io'dan gelenleri yönlendir -->
+    <script>
+        if (window.location.hostname.includes('github.io')) {
+            window.location.replace('https://eutaborsa.com');
+        }
+    </script>
+
     <!-- Open Graph -->
     <meta property="og:title" content="Hisse Senedi Analizi | BİST 50 Teknik Analiz - EUTA Borsa">
     <meta property="og:description" content="Profesyonel borsa analiz platformu. THYAO, GARAN, ASELS ve tüm BİST hisselerini analiz edin.">
@@ -127,8 +137,13 @@
             color: #6e7681;
             font-size: 14px;
         }
+        .seo-content {
+            position: absolute;
+            left: -9999px;
+            height: 0;
+            overflow: hidden;
+        }
     </style>
-<base target="_blank">
 </head>
 <body>
     <div class="container">
@@ -178,6 +193,33 @@
         <div class="footer">
             <p>© 2026 Ercan USLU - Hisse Analiz | eutaborsa.com</p>
         </div>
+    </div>
+
+    <!-- SEO Content - Gizli ama indexlenebilir -->
+    <div class="seo-content">
+        <h2>BİST 50 Popüler Hisse Senedi Analizleri</h2>
+        <p>EUTA Borsa platformunda analiz edilen Borsa İstanbul (BİST) hisse senetleri: 
+        THYAO, GARAN, ASELS, KCHOL, SAHOL, EREGL, FROTO, BIMAS, TCELL, ISCTR, YKBNK, AKBNK, 
+        HALKB, VAKBN, SISE, TUPRS, ENJSA, TOASO, EKGYO, PETKM, SASA, TAVHL, PGSUS, MGROS, 
+        AEFES, KRDMD, GUBRF, ASTOR, TTKOM, TRALT, ALARK, ARCLK, DOHOL, HEKTS, MAVI, CCOLA, 
+        CIMSA, DOAS, BRSAN, BTCIM, KONTR, KUYAS, MIATK, OYAKC, SOKM, TRMET, TSKB, VESTL, 
+        ZOREN, AGHOL. Her hisse için teknik analiz, grafik, fibonacci seviyeleri, 
+        RSI, MACD indikatörleri ve al-sat sinyalleri.</p>
+        <ul>
+            <li>THYAO (Türk Hava Yolları) hisse analizi ve grafik</li>
+            <li>GARAN (Garanti Bankası) hisse yorum ve hedef fiyat</li>
+            <li>ASELS (Aselsan) teknik analiz ve sinyaller</li>
+            <li>KCHOL (Koç Holding) hisse analizi</li>
+            <li>SAHOL (Sabancı Holding) teknik analiz</li>
+            <li>EREGL (Ereğli Demir Çelik) hisse yorum</li>
+            <li>BIMAS (BİM) teknik analiz</li>
+            <li>TCELL (Turkcell) hisse analizi</li>
+            <li>SISE (Şişe Cam) teknik analiz</li>
+            <li>TUPRS (Tüpraş) hisse yorum</li>
+        </ul>
+        <p>BİST 30, BİST 50 ve BİST 100 endekslerindeki tüm hisselerin detaylı teknik analizleri 
+        için EUTA Borsa platformunu kullanın. THYAO hisse analizi, GARAN teknik analiz, 
+        ASELS hisse yorumları ve daha fazlası.</p>
     </div>
 </body>
 </html>
