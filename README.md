@@ -10,8 +10,8 @@
 Borsa İstanbul (BİST) hisseleri için profesyonel teknik analiz:
 
 - 📈 **108 Teknik İndikatör** (SMA, EMA, RSI, MACD, Bollinger...)
-- 🔍 **Fibonacci Tarama** (Tüm BİST 50 hisseleri)
-- 📱 **Mobil Uyumlu** (Canlı piyasa takibi)
+- 🔍 **Fibonacci Tarama** (Tüm BİST  hisseleri)
+- 📱 **Mobil Uyumlu** (Piyasa takibi,Analiz,Fonksiyonlar,Stratejiler)
 - 🎯 **Al-Sat Sinyalleri**
 
 [→ Siteyi Ziyaret Et](https://www.eutaborsa.com)
