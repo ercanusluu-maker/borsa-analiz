@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://eutaborsa.com/sitemap.xml
