@@ -1,6 +1,6 @@
 # 👋 Merhaba, Ben Ercan USLU
 
-🔗 **[eutaborsa.com](https://www.eutaborsa.com)** ← BİST Teknik Analiz Platformu
+🔗 **[eutaborsa.com](https://eutaborsa.com)** ← BİST Teknik Analiz Platformu
 📊 **108 İndikatör** | Fibonacci | Al-Sat Sinyalleri
 
 ---
@@ -10,11 +10,11 @@
 Borsa İstanbul (BİST) hisseleri için profesyonel teknik analiz:
 
 - 📈 **108 Teknik İndikatör** (SMA, EMA, RSI, MACD, Bollinger...)
-- 🔍 **Fibonacci Tarama** (Tüm BİST  hisseleri)
-- 📱 **Mobil Uyumlu** (Piyasa takibi,Analiz,Fonksiyonlar,Stratejiler)
+- 🔍 **Fibonacci Tarama** (Tüm BİST hisseleri)
+- 📱 **Mobil Uyumlu** (Piyasa takibi, Analiz, Fonksiyonlar, Stratejiler)
 - 🎯 **Al-Sat Sinyalleri**
 
-[→ Siteyi Ziyaret Et](https://www.eutaborsa.com)
+[→ Siteyi Ziyaret Et](https://eutaborsa.com)
 
 ---
 
@@ -24,4 +24,4 @@ THYAO, GARAN, ASELS, KCHOL, SAHOL, EREGL, FROTO, BIMAS, TCELL...
 
 ---
 
-**© 2026 Ercan USLU | [eutaborsa.com](https://www.eutaborsa.com)**
+**© 2026 Ercan USLU | [eutaborsa.com](https://eutaborsa.com)**
