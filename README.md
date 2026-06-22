@@ -1,26 +1,38 @@
-# 👋 Merhaba, Ben Ercan USLU
+# EUTA Borsa - BIST Teknik Analiz Platformu
 
-🔗 **[eutaborsa.com](https://eutaborsa.com)** ← BİST Teknik Analiz Platformu
-📊 **108 İndikatör** | Fibonacci | Al-Sat Sinyalleri
-
----
-
-## 🚀 EUTA Borsa
-
-Borsa İstanbul (BİST) hisseleri için profesyonel teknik analiz:
-
-- 📈 **108 Teknik İndikatör** (SMA, EMA, RSI, MACD, Bollinger...)
-- 🔍 **Fibonacci Tarama** (Tüm BİST hisseleri)
-- 📱 **Mobil Uyumlu** (Piyasa takibi, Analiz, Fonksiyonlar, Stratejiler)
-- 🎯 **Al-Sat Sinyalleri**
-
-[→ Siteyi Ziyaret Et](https://eutaborsa.com)
+🔗 **Resmi site:** [eutaborsa.com](https://eutaborsa.com)  
+📊 **108 İndikatör** | Fibonacci Tarama | Al-Sat Sinyalleri | Strateji Backtest
 
 ---
 
-## 📊 Analiz Edilen Hisseler
+## EUTA Borsa Nedir?
 
-THYAO, GARAN, ASELS, KCHOL, SAHOL, EREGL, FROTO, BIMAS, TCELL...
+EUTA Borsa, Borsa İstanbul (BIST) hisseleri için geliştirilmiş teknik analiz, hisse tarama, formasyon analizi ve strateji backtest platformudur.
+
+Platform; yatırımcıların BIST hisselerini teknik göstergelerle incelemesine, al-sat sinyallerini takip etmesine ve kendi stratejilerini test etmesine yardımcı olur.
+
+---
+
+## Özellikler
+
+- **108 teknik indikatör:** SMA, EMA, RSI, MACD, Bollinger ve daha fazlası
+- **BIST hisse tarama:** Tüm BIST hisseleri üzerinde teknik koşul taraması
+- **Fibonacci analizi:** Destek, direnç ve seviye takibi
+- **Al-sat sinyalleri:** Teknik indikatörlere dayalı sinyal takibi
+- **Strateji backtest:** Geçmiş verilerle strateji performans analizi
+- **Mobil uyumlu arayüz:** Telefon, tablet ve masaüstü kullanım
+
+---
+
+## Analiz Edilen Hisseler
+
+THYAO, GARAN, ASELS, KCHOL, SAHOL, EREGL, FROTO, BIMAS, TCELL ve diğer BIST hisseleri.
+
+---
+
+## Site
+
+👉 [EUTA Borsa resmi sitesi](https://eutaborsa.com)
 
 ---
 
